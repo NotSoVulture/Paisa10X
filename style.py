@@ -1,12 +1,27 @@
-class Style:
-    BLACK = '\033[30m'
-    RED = '\033[31m'
-    GREEN = '\033[32m'
-    YELLOW = '\033[33m'
-    BLUE = '\033[34m'
-    MAGENTA = '\033[35m'
-    CYAN = '\033[36m'
-    WHITE = '\033[37m'
-    BOLD = '\033[1m'
-    UNDERLINE = '\033[4m'
-    RESET = '\033[0m'
+import sys
+
+def is_idle():
+    return 'idlelib' in sys.modules
+
+if is_idle():
+    class Style:
+        RESET = ''
+        RED = ''
+        GREEN = ''
+        YELLOW = ''
+        BLUE = ''
+        MAGENTA = ''
+        CYAN = ''
+        BLACK = ''
+        BOLD = ''
+else:
+    class Style:
+        RESET = '\033[0m'
+        RED = '\033[31m'
+        GREEN = '\033[32m'
+        YELLOW = '\033[33m'
+        BLUE = '\033[34m'
+        MAGENTA = '\033[35m'
+        CYAN = '\033[36m'
+        BLACK = '\033[30m'
+        BOLD = '\033[1m'
